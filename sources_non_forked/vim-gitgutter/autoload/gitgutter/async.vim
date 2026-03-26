@@ -1,8 +1,8 @@
 let s:available = has('nvim') || (
       \   has('job') && (
-      \     (has('patch-7-4-1826') && !has('gui_running')) ||
-      \     (has('patch-7-4-1850') &&  has('gui_running')) ||
-      \     (has('patch-7-4-1832') &&  has('gui_macvim'))
+      \     (has('patch-7.4.1826') && !has('gui_running')) ||
+      \     (has('patch-7.4.1850') &&  has('gui_running')) ||
+      \     (has('patch-7.4.1832') &&  has('gui_macvim'))
       \   )
       \ )
 
@@ -46,7 +46,7 @@ function! s:build_command(cmd)
   endif
 
   if has('win32')
-    return has('nvim') ? ['cmd.exe', '/c', a:cmd] : 'cmd.exe /c '.a:cmd
+    return has('nvim') ? a:cmd : 'cmd.exe /c '.a:cmd
   endif
 
   throw 'unknown os'
